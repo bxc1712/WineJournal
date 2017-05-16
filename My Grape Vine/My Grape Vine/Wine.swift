@@ -12,6 +12,8 @@ class Wine{
     var name:String
     var state:String?
     var rating:String?
+    var price:String?
+    
     
     init(name:String, state:String?, rating:Float?){
         self.name = name

@@ -35,7 +35,7 @@ class SearchTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        title = "Tunes Finder"
+        title = "My Grape Vine"
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,13 +72,6 @@ class SearchTableVC: UITableViewController {
                     return
                 }
                 
-                //let id = wineDictionary["Id"] as? String ?? "Unknown Id"
-                
-                //let name = wineDictionary["Name"] as? String ?? "Unknown Name"
-                
-                
-                //let s = "\(name)"
-                
                 searchResults.append(wineDictionary as AnyObject)
                 
             }
@@ -87,10 +80,6 @@ class SearchTableVC: UITableViewController {
                 print("\(wine["PriceRetail"])")
             }
             
-                
-//            } else {
-//                print("JSON error")
-//            }
             print(searchResults)
         } catch {
             print("Error parsing results: \(error.localizedDescription)")
@@ -114,9 +103,14 @@ class SearchTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! SearchCell
         cell.titleLabel.text = searchResults[indexPath.row]["Name"] as? String
-        var costText = searchResults[indexPath.row]["PriceRetail"]
-        //costText = (costText as AnyObject).replacingOcurrances(of: "Optional(Optional(", with: " ")
-        cell.costLabel?.text = "$\(costText)"
+        
+        //Unwrap optional before writing
+        if let costText = searchResults[indexPath.row]["PriceRetail"] {
+            if let unwrappedCost = costText {
+                cell.costLabel.text = "$\(unwrappedCost)"
+            }
+        }
+        
         // Configure the cell...
         
         
@@ -125,6 +119,20 @@ class SearchTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow{
+            let selectedRow = indexPath.row
+            guard selectedRow < searchResults.count else {
+                print("row \(selectedRow) is not in parks!")
+                return
+            }
+            let detailVC = segue.destination as! SearchDetailVC
+            detailVC.wine = searchResults[selectedRow]
+        }
     }
     
     //MARK - Helpers

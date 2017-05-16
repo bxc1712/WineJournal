@@ -11,6 +11,8 @@ import Foundation
 class WineData {
     static let sharedData = WineData()
     
+    var favorites = [AnyObject]()
+    
     var sortBy = [
         "Popularity","Rating"
     ]
