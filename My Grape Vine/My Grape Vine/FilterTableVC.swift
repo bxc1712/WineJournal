@@ -12,6 +12,10 @@ class FilterTableVC: UITableViewController {
     
     var filterOptions:[String] = []
     
+    @IBAction func cancelTapped(sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,10 +30,6 @@ class FilterTableVC: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func cancelTapped(sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
-    }
 
     // MARK: - Table view data source
 
@@ -40,16 +40,27 @@ class FilterTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return WineData.sharedData.sortBy.count
+        return WineData.sharedData.options.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "filter", for: indexPath)
-
-        // Configure the cell...
-        cell.textLabel?.text = WineData.sharedData.sortBy[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "options", for: indexPath)
+        
+        cell.textLabel?.text = WineData.sharedData.options[indexPath.row]
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0{
+            self.performSegue(withIdentifier: "sortBy", sender: self)
+        }
+        if indexPath.row == 1{
+            self.performSegue(withIdentifier: "sortBy", sender: self)
+        }
+        if indexPath.row == 2{
+            self.performSegue(withIdentifier: "searchState", sender: self)
+        }
     }
     
 

@@ -35,7 +35,7 @@ class SearchTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        title = "My Grape Vine"
+        title = "SearchTable"
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,6 +72,13 @@ class SearchTableVC: UITableViewController {
                     return
                 }
                 
+                //let id = wineDictionary["Id"] as? String ?? "Unknown Id"
+                
+                //let name = wineDictionary["Name"] as? String ?? "Unknown Name"
+                
+                
+                //let s = "\(name)"
+                
                 searchResults.append(wineDictionary as AnyObject)
                 
             }
@@ -80,6 +87,10 @@ class SearchTableVC: UITableViewController {
                 print("\(wine["PriceRetail"])")
             }
             
+                
+//            } else {
+//                print("JSON error")
+//            }
             print(searchResults)
         } catch {
             print("Error parsing results: \(error.localizedDescription)")
@@ -103,14 +114,9 @@ class SearchTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! SearchCell
         cell.titleLabel.text = searchResults[indexPath.row]["Name"] as? String
-        
-        //Unwrap optional before writing
-        if let costText = searchResults[indexPath.row]["PriceRetail"] {
-            if let unwrappedCost = costText {
-                cell.costLabel.text = "$\(unwrappedCost)"
-            }
-        }
-        
+        let costText = searchResults[indexPath.row]["PriceRetail"]
+        //costText = (costText as AnyObject).replacingOcurrances(of: "Optional(Optional(", with: " ")
+        cell.costLabel?.text = "$\(costText)"
         // Configure the cell...
         
         
@@ -119,20 +125,6 @@ class SearchTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-    }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow{
-            let selectedRow = indexPath.row
-            guard selectedRow < searchResults.count else {
-                print("row \(selectedRow) is not in parks!")
-                return
-            }
-            let detailVC = segue.destination as! SearchDetailVC
-            detailVC.wine = searchResults[selectedRow]
-        }
     }
     
     //MARK - Helpers
@@ -164,7 +156,7 @@ extension SearchTableVC:UISearchBarDelegate{
         }
         
         //build url to itunes web service
-        guard let url = URL(string: "http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=7dbccdc4de31b4985e1d024a261828e5&size=25&offset=10&filter=categories(7155+124)&term=mondavi+cab") else {
+        guard let url = URL(string: "http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=7dbccdc4de31b4985e1d024a261828e5&size=25&offset=10&filter=categories(7155+124)&term=mondavi+cabs") else {
             print(" ||||||Something is wrong with url|||||")
             return
         }

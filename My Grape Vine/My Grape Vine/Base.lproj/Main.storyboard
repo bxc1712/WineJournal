@@ -26,22 +26,22 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchCell" id="Sng-7h-73g" customClass="SearchCell" customModule="My_Grape_Vine" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" id="Sng-7h-73g" customClass="SearchCell" customModule="My_Grape_Vine" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sng-7h-73g" id="BHK-Tf-xBk">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wine Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydg-QC-bzu">
-                                            <rect key="frame" x="18" y="0.0" width="210.5" height="44"/>
+                                            <rect key="frame" x="18" y="0.0" width="232" height="44"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPm-HV-Kqt">
-                                            <rect key="frame" x="264" y="0.0" width="46" height="44"/>
+                                            <rect key="frame" x="292" y="0.0" width="51" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.14692985374381373" green="0.1856887142112067" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,7 +52,6 @@
                                 <connections>
                                     <outlet property="costLabel" destination="zPm-HV-Kqt" id="BgX-lt-Bmp"/>
                                     <outlet property="titleLabel" destination="ydg-QC-bzu" id="sBI-Ep-MzJ"/>
-                                    <segue destination="y6F-9e-pJK" kind="show" id="P5A-oZ-vNd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -78,7 +77,7 @@
             </objects>
             <point key="canvasLocation" x="1696.8" y="-358.4707646176912"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Options-->
         <scene sceneID="66L-bH-alf">
             <objects>
                 <tableViewController id="YBz-iT-v6Z" customClass="FilterTableVC" customModule="My_Grape_Vine" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,13 +86,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filter" id="Bv2-C0-qZw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="options" id="re5-26-Bb6">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="re5-26-Bb6" id="oU5-HU-qtH">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sort" id="Bv2-C0-qZw">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bv2-C0-qZw" id="Mof-wC-d23">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="NUm-Ub-gi2" kind="show" identifier="sortBy" id="M3U-uA-Bak"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="state" id="1sE-DL-J1u">
+                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1sE-DL-J1u" id="IpD-CU-Tob">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="j6F-II-9EM" kind="show" identifier="searchState" id="yxa-8K-OnT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -101,81 +122,73 @@
                             <outlet property="delegate" destination="YBz-iT-v6Z" id="EtI-Nf-NJY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="R81-gd-phZ"/>
+                    <navigationItem key="navigationItem" title="Options" id="R81-gd-phZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Mcw-Tu-Wmr">
+                            <connections>
+                                <action selector="cancelTappedWithSender:" destination="YBz-iT-v6Z" id="hgi-Ev-q8H"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0n-DA-saz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3478" y="-358"/>
+            <point key="canvasLocation" x="3457" y="-358"/>
         </scene>
-        <!--Search DetailVC-->
-        <scene sceneID="jet-2O-zES">
+        <!--Sorting TableVC-->
+        <scene sceneID="vcz-uo-KfU">
             <objects>
-                <viewController id="y6F-9e-pJK" customClass="SearchDetailVC" customModule="My_Grape_Vine" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tbz-OQ-AQ8"/>
-                        <viewControllerLayoutGuide type="bottom" id="RuJ-gK-Rj9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YSk-GV-g3A">
+                <tableViewController id="NUm-Ub-gi2" customClass="SortingTableVC" customModule="My_Grape_Vine" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="i8p-vF-Cf7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wine Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzj-FL-nzR">
-                                <rect key="frame" x="16" y="102" width="343" height="63"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyC-g0-SeX">
-                                <rect key="frame" x="108" y="468" width="159" height="35"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJZ-Lh-co2">
-                                <rect key="frame" x="16" y="580" width="170" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" title="View on Web"/>
-                                <connections>
-                                    <action selector="viewOnWeb:" destination="y6F-9e-pJK" eventType="touchUpInside" id="vcy-No-xjG"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-h8-ZTb">
-                                <rect key="frame" x="41" y="161" width="292" height="307"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Image Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJQ-fe-7cO">
-                                <rect key="frame" x="41" y="161" width="292" height="307"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8L-uj-Lhe">
-                                <rect key="frame" x="194" y="580" width="165" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Favorite"/>
-                                <connections>
-                                    <action selector="favoriteBtnTapped:" destination="y6F-9e-pJK" eventType="touchUpInside" id="VSs-5J-Yvr"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="I21-i7-vgF"/>
-                    <connections>
-                        <outlet property="favBtn" destination="Y8L-uj-Lhe" id="LHT-DQ-rOD"/>
-                        <outlet property="noImage" destination="NJQ-fe-7cO" id="uqO-RS-jaj"/>
-                        <outlet property="price" destination="QyC-g0-SeX" id="Wzr-Tj-uUN"/>
-                        <outlet property="wineImg" destination="OSL-h8-ZTb" id="3oL-0B-jo8"/>
-                        <outlet property="wineName" destination="Uzj-FL-nzR" id="yxN-tm-6eT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U39-V4-taP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ascDesc" id="HdX-Qp-KqG">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HdX-Qp-KqG" id="g89-ml-OoZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="NUm-Ub-gi2" id="Z9E-ig-rM5"/>
+                            <outlet property="delegate" destination="NUm-Ub-gi2" id="kJJ-Uk-W6n"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WAp-WL-zxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2592.8000000000002" y="-1296.7016491754123"/>
+            <point key="canvasLocation" x="4522" y="0.0"/>
+        </scene>
+        <!--State TableVC-->
+        <scene sceneID="gKg-y5-7Ps">
+            <objects>
+                <tableViewController id="j6F-II-9EM" customClass="StateTableVC" customModule="My_Grape_Vine" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zIw-Ra-C6T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="states" id="4Vd-xK-tOk">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Vd-xK-tOk" id="6E8-Vm-fq1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="j6F-II-9EM" id="L7l-XN-ZE8"/>
+                            <outlet property="delegate" destination="j6F-II-9EM" id="wXx-iS-C6Q"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zUi-Ux-8Bq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4521" y="-682"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m6J-5C-L0b">

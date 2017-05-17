@@ -1,15 +1,15 @@
 //
-//  FavoritesVC.swift
+//  StateTableVC.swift
 //  My Grape Vine
 //
-//  Created by Daniel Martin (RIT Student) on 4/26/17.
+//  Created by BENJAMIN CHENG (RIT Student) on 5/16/17.
 //  Copyright © 2017 Daniel Martin (RIT Student). All rights reserved.
 //
 
 import UIKit
 
-class FavoritesVC: UITableViewController {
-
+class StateTableVC: UITableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,18 +34,21 @@ class FavoritesVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return WineData.sharedData.getStates.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "states", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = WineData.sharedData.getStates[indexPath.row]
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var states = String()
+        states = WineData.sharedData.getStates[indexPath.row]
+    }
 
     /*
     // Override to support conditional editing of the table view.

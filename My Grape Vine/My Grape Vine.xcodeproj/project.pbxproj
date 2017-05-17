@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7C583C171ECA25DE00BBFEDF /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C583C161ECA25DE00BBFEDF /* Wine.swift */; };
 		7C91D0BA1ECA734C00372F06 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C91D0B91ECA734C00372F06 /* SwiftyJSON.swift */; };
-		7CBDBA341ECB89AB00CF96A8 /* SearchDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDBA331ECB89AB00CF96A8 /* SearchDetailVC.swift */; };
 		7CC3B8191EB103EB0086D350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3B8181EB103EB0086D350 /* AppDelegate.swift */; };
 		7CC3B8201EB103EB0086D350 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC3B81E1EB103EB0086D350 /* Main.storyboard */; };
 		7CC3B8221EB103EB0086D350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC3B8211EB103EB0086D350 /* Assets.xcassets */; };
@@ -22,6 +21,8 @@
 		7CC3B8531EB109750086D350 /* FavoritesDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3B8521EB109750086D350 /* FavoritesDetailVC.swift */; };
 		7CE4EF951ECA9A34009E7AD3 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4EF941ECA9A34009E7AD3 /* SearchCell.swift */; };
 		967477D11ECAC84500B78689 /* FilterTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967477D01ECAC84500B78689 /* FilterTableVC.swift */; };
+		96B8F3DB1ECBDA26007771D5 /* SortingTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8F3DA1ECBDA26007771D5 /* SortingTableVC.swift */; };
+		96C934C01ECBBCC0009D57C0 /* StateTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C934BF1ECBBCC0009D57C0 /* StateTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,6 @@
 /* Begin PBXFileReference section */
 		7C583C161ECA25DE00BBFEDF /* Wine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
 		7C91D0B91ECA734C00372F06 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		7CBDBA331ECB89AB00CF96A8 /* SearchDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailVC.swift; sourceTree = "<group>"; };
 		7CC3B8151EB103EB0086D350 /* My Grape Vine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Grape Vine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC3B8181EB103EB0086D350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CC3B81F1EB103EB0086D350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +63,8 @@
 		7CC3B8521EB109750086D350 /* FavoritesDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDetailVC.swift; sourceTree = "<group>"; };
 		7CE4EF941ECA9A34009E7AD3 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		967477D01ECAC84500B78689 /* FilterTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableVC.swift; sourceTree = "<group>"; };
+		96B8F3DA1ECBDA26007771D5 /* SortingTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingTableVC.swift; sourceTree = "<group>"; };
+		96C934BF1ECBBCC0009D57C0 /* StateTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,10 +158,11 @@
 			isa = PBXGroup;
 			children = (
 				7CC3B84C1EB1069E0086D350 /* FavoritesVC.swift */,
+				7CC3B8501EB1088E0086D350 /* SearchTableVC.swift */,
 				7CC3B8521EB109750086D350 /* FavoritesDetailVC.swift */,
 				967477D01ECAC84500B78689 /* FilterTableVC.swift */,
-				7CC3B8501EB1088E0086D350 /* SearchTableVC.swift */,
-				7CBDBA331ECB89AB00CF96A8 /* SearchDetailVC.swift */,
+				96C934BF1ECBBCC0009D57C0 /* StateTableVC.swift */,
+				96B8F3DA1ECBDA26007771D5 /* SortingTableVC.swift */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -311,13 +314,14 @@
 				7CC3B84F1EB106C60086D350 /* WineAppData.swift in Sources */,
 				7CE4EF951ECA9A34009E7AD3 /* SearchCell.swift in Sources */,
 				7CC3B8511EB1088E0086D350 /* SearchTableVC.swift in Sources */,
+				96B8F3DB1ECBDA26007771D5 /* SortingTableVC.swift in Sources */,
 				7C583C171ECA25DE00BBFEDF /* Wine.swift in Sources */,
 				7CC3B84D1EB1069E0086D350 /* FavoritesVC.swift in Sources */,
-				7CBDBA341ECB89AB00CF96A8 /* SearchDetailVC.swift in Sources */,
 				7CC3B8191EB103EB0086D350 /* AppDelegate.swift in Sources */,
 				7C91D0BA1ECA734C00372F06 /* SwiftyJSON.swift in Sources */,
 				7CC3B8531EB109750086D350 /* FavoritesDetailVC.swift in Sources */,
 				967477D11ECAC84500B78689 /* FilterTableVC.swift in Sources */,
+				96C934C01ECBBCC0009D57C0 /* StateTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

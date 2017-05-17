@@ -1,15 +1,17 @@
 //
-//  FavoritesVC.swift
+//  SortingTableVC.swift
 //  My Grape Vine
 //
-//  Created by Daniel Martin (RIT Student) on 4/26/17.
+//  Created by BENJAMIN CHENG (RIT Student) on 5/16/17.
 //  Copyright © 2017 Daniel Martin (RIT Student). All rights reserved.
 //
 
 import UIKit
 
-class FavoritesVC: UITableViewController {
+class SortingTableVC: UITableViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,18 +36,23 @@ class FavoritesVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return WineData.sharedData.sortingOptions.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ascDesc", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = WineData.sharedData.sortingOptions[indexPath.row]
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var order = String()
+        order = WineData.sharedData.sortingOptions[indexPath.row]
+        print(order)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
