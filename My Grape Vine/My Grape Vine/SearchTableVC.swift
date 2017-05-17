@@ -164,7 +164,7 @@ extension SearchTableVC:UISearchBarDelegate{
         }
         
         //build url to itunes web service
-        guard let url = URL(string: "http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=7dbccdc4de31b4985e1d024a261828e5&size=25&offset=10&filter=categories(7155+124)term=mondavi+cab") else {
+        guard let url = URL(string: "http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=7dbccdc4de31b4985e1d024a261828e5&size=25&offset=10&filter=categories(7155+124)&term=mondavi+cab") else {
             print(" ||||||Something is wrong with url|||||")
             return
         }

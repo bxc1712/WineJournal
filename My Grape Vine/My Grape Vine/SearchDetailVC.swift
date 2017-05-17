@@ -15,9 +15,12 @@ class SearchDetailVC: UIViewController {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var wineImg: UIImageView!
     @IBOutlet weak var noImage: UILabel!
+    @IBOutlet weak var favBtn: UIButton!
     
     var wine:AnyObject?
     var imageURL:String!
+    var favorited:Bool!
+    var arrayPos:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +45,9 @@ class SearchDetailVC: UIViewController {
                 price.text = "$\(unwrappedCost)"
             }
         }
+        
+        favorited = false
+        checkFavorites()
         // Do any additional setup after loading the view.
         
     }
@@ -51,6 +57,16 @@ class SearchDetailVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func checkFavorites(){
+        for index in 0..<WineData.sharedData.favorites.count {
+            if(wine!["Name"] as! String == WineData.sharedData.favorites[index]["Name"] as! String){
+                arrayPos = index
+                favBtn.setTitle("Unfavorite", for: .normal)
+                favorited = true
+            }
+        }
+        
+    }
     
     // MARK - Image Downloading Code -
     func getImageURL(){
@@ -85,7 +101,6 @@ class SearchDetailVC: UIViewController {
     
     // - MARK - IBActions
     @IBAction func viewOnWeb(_ sender: Any) {
-
             if let url = URL(string: (wine?["Url"])! as! String){
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(
@@ -103,15 +118,20 @@ class SearchDetailVC: UIViewController {
     }
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func favoriteBtnTapped(_ sender: Any) {
+        if(!favorited){
+            WineData.sharedData.favorites.append(wine!)
+            favBtn.setTitle("Unfavorite", for: .normal)
+            favorited = true
+            arrayPos = WineData.sharedData.favorites.count - 1
+        } else {
+            WineData.sharedData.favorites.remove(at: arrayPos!)
+            favBtn.setTitle("Favorite", for: .normal)
+            favorited = false
+        }
+        
+        for w in WineData.sharedData.favorites{
+            print(w["Name"] as Any)
+        }
     }
-    */
-
 }
