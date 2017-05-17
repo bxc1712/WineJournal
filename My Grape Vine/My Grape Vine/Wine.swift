@@ -8,13 +8,20 @@
 
 import Foundation
 
-class Wine{
-    var name:String
-    var state:String?
-    var rating:String?
+class Wine:NSObject, NSCoding{
+    var wine: AnyObject
     
-    init(name:String, state:String?, rating:Float?){
-        self.name = name
-        self.rating = "\(rating)"
+    init(w:AnyObject){
+        wine = w
+    }
+    
+    required init(coder aDecoder:NSCoder) {
+        wine = (aDecoder.decodeObject(forKey: "wine"))! as AnyObject
+        print("init with coder called on")
+    }
+    
+    public func encode(with aCoder: NSCoder){
+        aCoder.encode(wine, forKey: "wine")
+        print("encode with coder called on")
     }
 }

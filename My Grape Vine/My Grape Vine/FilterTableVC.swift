@@ -12,10 +12,6 @@ class FilterTableVC: UITableViewController {
     
     var filterOptions:[String] = []
     
-    @IBAction func cancelTapped(sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +25,10 @@ class FilterTableVC: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func cancelTapped(sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -45,7 +45,8 @@ class FilterTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "options", for: indexPath)
-        
+
+        // Configure the cell...
         cell.textLabel?.text = WineData.sharedData.options[indexPath.row]
         
         return cell
@@ -53,16 +54,9 @@ class FilterTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            self.performSegue(withIdentifier: "sortBy", sender: self)
-        }
-        if indexPath.row == 1{
-            self.performSegue(withIdentifier: "sortBy", sender: self)
-        }
-        if indexPath.row == 2{
             self.performSegue(withIdentifier: "searchState", sender: self)
         }
     }
-    
 
     /*
     // Override to support conditional editing of the table view.

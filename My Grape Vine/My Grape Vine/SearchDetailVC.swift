@@ -36,6 +36,7 @@ class SearchDetailVC: UIViewController {
                 downloadImage(url: checkedUrl)
                 noImage.isHidden = true
             }
+            
         }
         
         
@@ -51,7 +52,7 @@ class SearchDetailVC: UIViewController {
         // Do any additional setup after loading the view.
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,7 +60,7 @@ class SearchDetailVC: UIViewController {
     
     func checkFavorites(){
         for index in 0..<WineData.sharedData.favorites.count {
-            if(wine!["Name"] as! String == WineData.sharedData.favorites[index]["Name"] as! String){
+            if(wine!["Name"] as! String == WineData.sharedData.favorites[index].wine["Name"] as! String){
                 arrayPos = index
                 favBtn.setTitle("Unfavorite", for: .normal)
                 favorited = true
@@ -99,28 +100,31 @@ class SearchDetailVC: UIViewController {
         }
     }
     
+    
+    
     // - MARK - IBActions
     @IBAction func viewOnWeb(_ sender: Any) {
-            if let url = URL(string: (wine?["Url"])! as! String){
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(
-                        url,
-                        options:[:],
-                        completionHandler: {
-                            (success) in
-                            print("Open \(url.description) - success = \(success)")
-                    }
-                    )
-                } else {
-                    // Fallback on earlier versions
+        if let url = URL(string: (wine?["Url"])! as! String){
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(
+                    url,
+                    options:[:],
+                    completionHandler: {
+                        (success) in
+                        print("Open \(url.description) - success = \(success)")
                 }
+                )
+            } else {
+                // Fallback on earlier versions
             }
+        }
     }
     
     
     @IBAction func favoriteBtnTapped(_ sender: Any) {
         if(!favorited){
-            WineData.sharedData.favorites.append(wine!)
+            let w:Wine = Wine(w: wine!)
+            WineData.sharedData.favorites.append(w)
             favBtn.setTitle("Unfavorite", for: .normal)
             favorited = true
             arrayPos = WineData.sharedData.favorites.count - 1
@@ -128,10 +132,6 @@ class SearchDetailVC: UIViewController {
             WineData.sharedData.favorites.remove(at: arrayPos!)
             favBtn.setTitle("Favorite", for: .normal)
             favorited = false
-        }
-        
-        for w in WineData.sharedData.favorites{
-            print(w["Name"] as Any)
         }
     }
 }
