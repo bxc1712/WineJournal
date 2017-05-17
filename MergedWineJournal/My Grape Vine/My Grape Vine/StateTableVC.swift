@@ -10,11 +10,11 @@ import UIKit
 
 class StateTableVC: UITableViewController {
     
-    var states = String()
+    var state = "CA"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.clearsSelectionOnViewWillAppear = false
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -41,14 +41,20 @@ class StateTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "states", for: indexPath)
-
+        
         cell.textLabel?.text = WineData.sharedData.getStates[indexPath.row]
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        states = WineData.sharedData.getStates[indexPath.row]
+        state = WineData.sharedData.getStates[indexPath.row]
+        
+        let nc = NotificationCenter.default
+        
+        let data = ["state":state]
+        
+        nc.post(name: stateSelectedNotification, object: self, userInfo: data)
     }
 
     /*
